@@ -1,0 +1,96 @@
+[
+    {
+        "key": "1",
+        "name": "Dashboard",
+        "href": ""
+    },
+    {
+        "key": "2",
+        "name": "Add Task",
+        "href": "AddTask"
+    },
+    {
+        "key": "3",
+        "name": "View",
+        "child": {
+            "Inbox": [],
+            "Today": [],
+            "Calender": []
+        },
+        "href": "Views"
+    },
+    {
+        "key": "4",
+        "name": "Projects",
+        "child": {
+            "Create Projects": [],
+            "Project List": [],
+            "Project Workflow": []
+        },
+        "href": "Projects"
+    },
+    {
+        "key": "5",
+        "name": "Conversation",
+        "child": {
+            "Conversations": [],
+            "Add Conversation": [],
+            "Conversation Reply": []
+        },
+        "href": "Conversation"
+    },
+    {
+        "key": "6",
+        "name": "Tags",
+        "href": "Tags"
+    },
+    {
+        "key": "7",
+        "name": "Filters",
+        "child": {
+            "My Task": [],
+            "My Documents": [],
+            "Assigned To Me": [],
+            "Assigned By Me": [],
+            "Task Status": [
+                "Completed",
+                "Overdue",
+                "Pending",
+                "Deleted"
+            ],
+            "Task Priority": [
+                "Critical",
+                "High",
+                "Medium",
+                "Low"
+            ]
+        },
+        "href": "Filters"
+    },
+    {
+        "key": "8",
+        "name": "Search",
+        "href": "Search/"
+    },
+    {
+        "key": "8",
+        "name": "Template",
+        "child": {
+            "Manage Templates":[],
+            "View Template":[],
+            "Add Template":[]
+        },
+        "href": "Master/"
+    },
+    {
+        "key": "9",
+        "name": "Admin",
+        "child": {
+            "Manage Users":[],
+            "Manage Roles":[],
+            "Manage Lookup":[],
+            "Email Templates":[]
+        },
+        "href": "Master/"
+    }
+]

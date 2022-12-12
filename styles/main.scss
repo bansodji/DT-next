@@ -1,0 +1,73 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@import "./var";
+@import "./login";
+@import "./color";
+@import "./hovDropdown";
+
+.fff{
+    color: #fff !important;
+}
+
+b{
+    font-weight: bold !important;
+}
+
+.bg-dark{
+    background-color: $dark !important;
+}
+
+.uppercase{
+    text-transform: uppercase;
+}
+
+.f-rounded{
+    border-radius: 18px;
+}
+
+.f-rounded-top{
+    border-radius: 18px 18px 0 0;
+}
+
+a{
+    color: black !important;
+}
+
+th,td{
+    padding: 30px;
+}
+
+.shadow-box{
+    box-shadow: -1px -1px 14px -3px rgba(255, 255, 255, 0.2);
+}
+
+nav{
+    z-index: 9999999999 !important;
+}
+
+.size-100{
+    width: 100%;
+    height: 100%;
+}
+
+.inner-footer{
+    display: flex;
+    justify-content: space-between;
+}
+
+@media(max-width:960px){
+    .inner-footer{
+        display: block;
+        justify-content: space-between;
+        text-align: center;
+
+        .footer-links{
+            justify-content: center !important;
+            margin-bottom: 1rem;
+        }
+    }
+}
