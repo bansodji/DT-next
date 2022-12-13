@@ -5,38 +5,24 @@ import { createTheme, NextUIProvider, Spacer } from "@nextui-org/react"
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import Header from '../components/Header3'
 import Footer from '../components/Footer';
+import Router from 'next/router'
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 
-const lightTheme = createTheme({
-  type: 'light',
-})
-
-const darkTheme = createTheme({
-  type: 'dark',
-})
+Router.onRouteChangeStart = () => NProgress.start()
+Router.onRouteChangeComplete = () => NProgress.done()
+Router.onRouteChangeError = () => NProgress.done()
 
 function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      <NextThemesProvider
-        defaultTheme='light'
-        attribute="class"
-        value={{
-          light: lightTheme.className,
-          dark: darkTheme.className
-        }}
-      >
-        <NextUIProvider>
-          <Header />
-          <Spacer y={1} />
-          <Component {...pageProps} />
-          <Footer />
-        </NextUIProvider>
-      </NextThemesProvider>
-
-      <div className='hdn-fields'>
-        <input type='hidden' id="hdn-session"/>
-      </div>
+      <NextUIProvider>
+        <Header />
+        <Spacer y={1} />
+        <Component {...pageProps} />
+        <Footer />
+      </NextUIProvider>
     </>
   )
 }

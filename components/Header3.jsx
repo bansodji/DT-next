@@ -38,27 +38,27 @@ export default function Header() {
         let data = props.data;
         return (
             <>
-                <div class="f-dropdown">
-                    <a class="f-dropbtn mx-0 px-0 d-flex">{data.name}</a>
-                    <div class="f-dropdown-content">
+                <div className="f-dropdown">
+                    <a className="f-dropbtn mx-0 px-0 d-flex">{data.name}</a>
+                    <div className="f-dropdown-content">
                         {Object.keys(data.child).map((item, index) => {
                             if (data.child[item].length == 0) {
                                 return (
-                                    <li key={index}><Link href={`/${data.name}/${item.replace(" ","")}`}>{item}</Link></li>
+                                    <a><Link href={`/${data.name}/${item.replace(" ", "")}`}>{item}</Link></a>
                                 )
                             }
                             else {
                                 return (
-                                    <li href="#" class="r-dropdown">
-                                        <div class="r-dropdown">
-                                            <a class="r-dropbtn d-flex">{item} <ChevronRightIcon /></a>
-                                            <div class="r-dropdown-content">
+                                    <a className="r-dropdown">
+                                        <div className="r-dropdown">
+                                            <a className="r-dropbtn py-1 d-flex">{item} <ChevronRightIcon /></a>
+                                            <div className="r-dropdown-content">
                                                 {data.child[item].map((d, i) => (
-                                                    <li key={i}><Link href={`/${data.name}/${item.replace(" ","")}/${d.replace(" ","")}`}>{d}</Link></li>
+                                                    <a className="" key={i}><Link css={{ display: 'block' }} href={`/${data.name}/${item.replace(" ", "")}/${d.replace(" ", "")}`}>{d}</Link></a>
                                                 ))}
                                             </div>
                                         </div>
-                                    </li>
+                                    </a>
                                 )
                             }
                         })}

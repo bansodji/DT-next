@@ -26,15 +26,16 @@
     border-radius: 16px;
 }
 
-.f-dropdown-content li {
+.f-dropdown-content a {
     color: black;
-    padding: 7px 16px;
+    padding: 5px;
     text-decoration: none;
     display: block;
     border-radius: 16px;
+    width: 100%;
 }
 
-.f-dropdown-content li:hover {
+.f-dropdown-content a:hover {
     background-color: rgb(235, 234, 234);
     // border: 3px solid #9750DD;
 }
@@ -73,15 +74,15 @@
     border-radius: 16px;
 }
 
-.r-dropdown-content li {
+.r-dropdown-content a {
     color: black;
-    padding: 7px 16px;
+    padding: 5px;
     text-decoration: none;
     display: block;
     border-radius: 16px;
 }
 
-.r-dropdown-content li:hover {
+.r-dropdown-content a:hover {
     background-color: rgb(235, 234, 234);
     // border: 3px solid #9750DD;
 }
