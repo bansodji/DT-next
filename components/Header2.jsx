@@ -10,8 +10,6 @@ import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 export default function Header() {
     const [navdata, setnavdata] = useState([])
 
-
-
     useEffect(() => {
         fetchNavData()
     }, [])
@@ -47,28 +45,30 @@ export default function Header() {
                 }}>
                     {data.name}
                 </Dropdown.Button>
-                <Dropdown.Menu css={{overflow: 'hidden'}}>
+                <Dropdown.Menu css={{ overflow: 'hidden' }}>
                     {Object.keys(data.child).map((item, i) => {
-                        if (data.child[item].length == 0) {
-                            return (
-                                <Dropdown.Item key={i}>{item}</Dropdown.Item>
-                            )
-                        }
-                        else {
-                            return (
-                                <Dropdown.Item key={i}>
-                                    <div class="dropdown">
-                                        <Text class="dropbtn">Dropdown <ArrowRightIcon/></Text>
-                                        <div class="dropdown-content">
-                                            <a href="/">Link 1</a>
-                                            <a href="#">Link 2</a>
-                                            <a href="#">Link 3</a>
-                                        </div>
-                                    </div>
-                                </Dropdown.Item>
+                        // if (data.child[item].length == 0) {
+                        return (
+                            <Dropdown.Item key={i}>
+                                <Link href={`/${data.name}/${item.replace(" ","")}`}>{item}</Link>
+                            </Dropdown.Item>
+                        )
+                        // }
+                        // else {
+                        //     return (
+                        //         <Dropdown.Item key={i}>
+                        //             <div class="dropdown">
+                        //                 <Text class="dropbtn">Dropdown <ArrowRightIcon/></Text>
+                        //                 <div class="dropdown-content">
+                        //                     <a href="/">Link 1</a>
+                        //                     <a href="#">Link 2</a>
+                        //                     <a href="#">Link 3</a>
+                        //                 </div>
+                        //             </div>
+                        //         </Dropdown.Item>
 
-                            )
-                        }
+                        //     )
+                        // }
                     })}
                 </Dropdown.Menu>
             </Dropdown>

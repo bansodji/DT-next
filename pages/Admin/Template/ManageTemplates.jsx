@@ -1,6 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
-import BreadCrumbs from '../../components/BreadCrumbs'
+import BreadCrumbs from '../../../components/BreadCrumbs'
 import { Card, Container, Spacer, Input, Tooltip, Text, useTheme, Modal, Button } from '@nextui-org/react'
 import { Col, Row } from 'react-bootstrap'
 import SearchIcon from '@mui/icons-material/Search';
@@ -25,7 +25,7 @@ export default function ManageTemplates() {
             </Head>
 
             <main>
-                <BreadCrumbs stage1="Template" stage2="Manage Templates" />
+                <BreadCrumbs stage1="Admin" stage2="Template" stage3="Manage Templates" />
                 <Spacer y={1} />
                 <ManageTemplateTitle />
                 <Spacer y={1} />
@@ -53,14 +53,14 @@ const ManageTemplateTitle = () => {
             <div className='d-flex justify-content-between align-items-center py-2 px-4 f-rounded-top' style={{ backgroundColor: theme.colors.secondaryLight.value }}>
                 <Text h4 css={{ textTransform: 'uppercase' }} color='fff'>Manage Templates</Text>
                 <div>
-                    <Link href="/Template/ViewTemplate">
+                    <Link href="/Admin/Template/ViewTemplate">
                         <Tooltip content={"View Template"}>
                             <IconButton color="secondary" aria-label="Create Project" component="label">
                                 <VisibilityIcon fontSize="large" />
                             </IconButton>
                         </Tooltip>
                     </Link>
-                    <Link href="/Template/AddTemplate">
+                    <Link href="/Admin/Template/AddTemplate">
                         <Tooltip content={"Create Template"}>
                             <IconButton color="secondary" aria-label="Create Project" component="label">
                                 <AddBoxIcon fontSize="large" />

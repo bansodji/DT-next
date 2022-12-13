@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
-import BreadCrumbs from '../../components/BreadCrumbs'
-import TitleBar from '../../components/TitleBar'
+import BreadCrumbs from '../../../components/BreadCrumbs'
+import TitleBar from '../../../components/TitleBar'
 import { Container, Spacer, Card, Text, Table, css } from '@nextui-org/react'
 import { Col, Row } from 'react-bootstrap'
 
@@ -158,13 +158,13 @@ export default function ViewTemplate() {
             </Head>
 
             <main>
-                <BreadCrumbs stage1="Template" stage2="View Template" />
+                <BreadCrumbs stage1="Admin" stage2="Template" stage3="View Template" />
                 <Spacer y={1} />
                 <TitleBar
                     title=" View Template"
                     isButton={true}
                     buttonName="Create Template"
-                    href="/Template/AddTemplate"
+                    href="/Admin/Template/AddTemplate"
                 />
                 <Spacer y={1} />
 

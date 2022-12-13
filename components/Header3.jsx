@@ -5,6 +5,7 @@ import Head from "next/head";
 import Logo from "/public/assets/images/logo.png"
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 export default function Header() {
     const [navdata, setnavdata] = useState([])
@@ -31,6 +32,40 @@ export default function Header() {
         data.json().then((res) => {
             setnavdata(res)
         })
+    }
+
+    const MenuDropDown = (props) => {
+        let data = props.data;
+        return (
+            <>
+                <div class="f-dropdown">
+                    <a class="f-dropbtn mx-0 px-0 d-flex">{data.name}</a>
+                    <div class="f-dropdown-content">
+                        {Object.keys(data.child).map((item, index) => {
+                            if (data.child[item].length == 0) {
+                                return (
+                                    <li key={index}><Link href={`/${data.name}/${item.replace(" ","")}`}>{item}</Link></li>
+                                )
+                            }
+                            else {
+                                return (
+                                    <li href="#" class="r-dropdown">
+                                        <div class="r-dropdown">
+                                            <a class="r-dropbtn d-flex">{item} <ChevronRightIcon /></a>
+                                            <div class="r-dropdown-content">
+                                                {data.child[item].map((d, i) => (
+                                                    <li key={i}><Link href={`/${data.name}/${item.replace(" ","")}/${d.replace(" ","")}`}>{d}</Link></li>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </li>
+                                )
+                            }
+                        })}
+                    </div>
+                </div>
+            </>
+        )
     }
 
     return (
@@ -61,23 +96,18 @@ export default function Header() {
                     hideIn="xs"
                     variant="default"
                 >
-                    {/* {navdata.map((data) => (
-                        <>
-                        
-                        </>
-                    ))} */}
+                    {navdata.map((data) => {
 
+                        if ('child' in data) {
+                            return <MenuDropDown data={data} />
+                        }
+                        else {
+                            return (
+                                <Link className="" href={`/${data.href}`}><Text>{data.name}</Text></Link>
+                            )
+                        }
 
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown button
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </div>
+                    })}
 
                 </Navbar.Content>
                 <Navbar.Content
@@ -156,4 +186,10 @@ export default function Header() {
             </Navbar>
         </>
     );
+}
+
+
+const app = () => {
+
+
 }

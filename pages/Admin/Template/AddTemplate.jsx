@@ -1,9 +1,9 @@
 import React from 'react'
 import Head from 'next/head'
-import BreadCrumbs from '../../components/BreadCrumbs'
-import TitleBar from '../../components/TitleBar'
+import BreadCrumbs from '../../../components/BreadCrumbs'
+import TitleBar from '../../../components/TitleBar'
 import { Container, Spacer} from '@nextui-org/react'
-import AddTemplateSteper from '../../components/AddTemplateSteper'
+import AddTemplateSteper from '../../../components/AddTemplateSteper'
 
 export default function AddTemplate() {
     return (
@@ -13,7 +13,7 @@ export default function AddTemplate() {
             </Head>
 
             <main>
-                <BreadCrumbs stage1="Template" stage2="Add Template" />
+                <BreadCrumbs stage1="Admin" stage2="Template" stage3="Add Template" />
                 <Spacer y={1} />
                 <TitleBar
                     title="Add Template"
