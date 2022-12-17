@@ -1,4 +1,4 @@
-import { Navbar, Text, Avatar, Dropdown } from "@nextui-org/react";
+import { Navbar, Text, Avatar, Dropdown, Button } from "@nextui-org/react";
 import Image from 'next/image'
 // import Link from 'next/link'
 import Head from "next/head";
@@ -6,10 +6,13 @@ import Logo from "/public/assets/images/logo.png"
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import { useSession, signOut } from 'next-auth/react'
 
 export default function Header() {
     const [navdata, setnavdata] = useState([])
+    const { data: session } = useSession()
 
+    console.log(session)
     useEffect(() => {
         fetchNavData()
     }, [])
@@ -121,13 +124,26 @@ export default function Header() {
                     <Dropdown placement="bottom-right">
                         <Navbar.Item>
                             <Dropdown.Trigger>
-                                <Avatar
-                                    bordered
-                                    as="button"
-                                    color="secondary"
-                                    size="md"
-                                    src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
-                                />
+                                {
+                                    (session) ?
+                                        <Avatar
+                                            bordered
+                                            as="button"
+                                            //color="secondary"
+                                            size="md"
+                                            // src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+                                            src={session.user.image}
+                                        />
+                                        :
+                                        <Avatar
+                                            bordered
+                                            as="button"
+                                            // color="secondary"
+                                            size="md"
+                                            //src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+                                            // src=""
+                                        />
+                                }
                             </Dropdown.Trigger>
                         </Navbar.Item>
                         <Dropdown.Menu
@@ -156,7 +172,7 @@ export default function Header() {
                                 Help & Feedback
                             </Dropdown.Item>
                             <Dropdown.Item key="logout" withDivider color="error">
-                                Log Out
+                                <Button onClick={() => signOut()} light>Log out</Button>
                             </Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
